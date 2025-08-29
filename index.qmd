@@ -1,0 +1,13 @@
+---
+title: "MLSYNTH"
+---
+
+# Welcome to MLSYNTH
+
+MLSYNTH is my software.
+
+- 🚀 Features
+- ⚡ Fast
+- 🎨 Easy to use
+
+[Get Started](#)
