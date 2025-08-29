@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'index.qmd'
-  workflow_dispatch:  # allows manual trigger
+  workflow_dispatch:
 
 jobs:
   render:
