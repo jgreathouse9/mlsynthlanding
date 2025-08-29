@@ -17,7 +17,7 @@ jobs:
     - name: Set up Quarto
       uses: quarto-dev/quarto-actions/setup@v2
       with:
-        version: '1.3.332'  # or latest stable
+        version: "1.7.8"
 
     - name: Render Quarto site
       working-directory: mlsynth
