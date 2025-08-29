@@ -3,7 +3,8 @@ name: Render MLSYNTH Site
 on:
   push:
     paths:
-      - 'index.qmd'
+      - '**.qmd'
+      - 'quarto.yml'
   workflow_dispatch:
 
 jobs:
@@ -11,19 +12,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # 1. Checkout repo
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    # 2. Set up Quarto
     - name: Set up Quarto
       uses: quarto-dev/quarto-actions/setup@v2
       with:
         version: "1.7.8"
 
-    - name: Render Quarto site
-      run: quarto render index.qmd
+    # 3. Install Python dependencies (if any)
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 4. Render Quarto site
+    - name: Render Quarto site
+      run: quarto render
+
+    # 5. Commit and push generated site
     - name: Commit and push generated site
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "Auto-render MLSYNTH site"
         branch: main
+        file_pattern: "docs/**"
