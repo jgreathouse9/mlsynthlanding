@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: .  # render output in the root
 format:
   html:
     theme: cayman
