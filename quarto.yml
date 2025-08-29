@@ -1,5 +1,10 @@
 project:
   type: website
+  title: "MLSYNTH"
+
 format:
   html:
     theme: cayman
+
+website:
+  output-dir: docs
