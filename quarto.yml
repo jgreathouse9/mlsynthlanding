@@ -1,3 +1,6 @@
 project:
   type: website
-  output-dir: .  # output to current directory
+  output-dir: .  # render output in the root
+format:
+  html:
+    theme: cayman
